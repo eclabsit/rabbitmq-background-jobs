@@ -32,6 +32,8 @@ class ConsumerRouter implements ConsumerInterface
 			return ConsumerInterface::MSG_REJECT_REQUEUE;
 		} catch (RejectException $e) {
 			return ConsumerInterface::MSG_REJECT;
+		} catch (\Exception $e) {
+			//TODO: Requee in another priority and email to team
 		}
 		
 		return ConsumerInterface::MSG_ACK;
